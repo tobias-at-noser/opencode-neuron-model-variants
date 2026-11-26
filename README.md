@@ -9,8 +9,8 @@ Anzeigenamen und die Reasoning-Varianten. Authentifizierung, Provider-Einstellun
 
 Getestet mit OpenCode **2.4.2** und Neuron **0.9.1**. Falls dein LiteLLM-Proxy einen API-Key verlangt, richte ihn wie
 in der Neuron-Dokumentation beschrieben ein; der Key gehört nicht in die Optionen des Begleitplugins.
-Für einen lokalen Checkout `npm ci` in diesem Repository ausführen. Danach beide Plugins in `opencode.json(c)` eintragen
-bzw. eine vorhandene Neuron-Konfiguration um den zweiten Eintrag ergänzen:
+Beide Plugins in `opencode.json(c)` eintragen bzw. eine vorhandene Neuron-Konfiguration um den zweiten Eintrag ergänzen.
+OpenCode installiert das Begleitplugin direkt aus dem GitHub-Repository; ein lokaler Checkout ist nicht nötig:
 
 ```jsonc
 {
@@ -25,7 +25,7 @@ bzw. eine vorhandene Neuron-Konfiguration um den zweiten Eintrag ergänzen:
       }
     },
     {
-      "package": "/absoluter/pfad/zu/opencode-neuron-model-variants",
+      "package": "github:tobias-at-noser/opencode-neuron-model-variants#main",
       "options": {
         "profiles": [{ "id": "personal", "name": "Personal" }],
         "models": {
@@ -59,8 +59,7 @@ npm pack --dry-run
 
 ## Versionierung und Releases
 
-Wie bei [Agents of Olymp](https://github.com/tobias-at-noser/opencode-agents-of-olymp) steuern
-[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) die Version:
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) steuern die Version:
 `fix:` für Patch, `feat:` für Minor und `!` oder `BREAKING CHANGE:` für Major.
 `0.1.0` ist die Ausgangsversion, kein bereits veröffentlichter Tag. Ein erster `feat:`-Commit
 führt damit zu `v0.2.0`.
